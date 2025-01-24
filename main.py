@@ -24,10 +24,13 @@ def main():
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+            
+        player.update(dt)
         screen.fill((0,0,0))
-
         player.draw(screen)
-
         pygame.display.flip()
 
         clock.tick(60)
